@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CourseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Course
      * @ORM\Column(type="string", length=40)
      */
     private $Public;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Child::class, mappedBy="coursValide")
+     */
+    private $membre;
+
+    public function __construct()
+    {
+        $this->membre = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,36 @@ class Course
     public function setPublic(string $Public): self
     {
         $this->Public = $Public;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Child[]
+     */
+    public function getMembre(): Collection
+    {
+        return $this->membre;
+    }
+
+    public function addMembre(Child $membre): self
+    {
+        if (!$this->membre->contains($membre)) {
+            $this->membre[] = $membre;
+            $membre->setCoursValide($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMembre(Child $membre): self
+    {
+        if ($this->membre->removeElement($membre)) {
+            // set the owning side to null (unless already changed)
+            if ($membre->getCoursValide() === $this) {
+                $membre->setCoursValide(null);
+            }
+        }
 
         return $this;
     }

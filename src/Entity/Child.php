@@ -57,6 +57,11 @@ class Child
      */
     private $statut;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Course::class, inversedBy="membre")
+     */
+    private $coursValide;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class Child
     public function setStatut(?string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getCoursValide(): ?Course
+    {
+        return $this->coursValide;
+    }
+
+    public function setCoursValide(?Course $coursValide): self
+    {
+        $this->coursValide = $coursValide;
 
         return $this;
     }
