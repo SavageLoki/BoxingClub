@@ -28,10 +28,10 @@ class ContactController extends AbstractController
             // $contenu = $form->get('content')->getData();
 
             // $email = (new TemplatedEmail())
-            //  ->from('')
+            //  ->from($mail)
             //  ->to('')
             //   ->subject('formulaire de contact')
-            // ->text('');
+            // ->text($contenu);
 
 
 

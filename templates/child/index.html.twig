@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Child index{% endblock %}
+
+{% block body %}
+    <h1>Child index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>DateNaissance</th>
+                <th>NumeroParent</th>
+                <th>Email</th>
+                <th>Niveau</th>
+                <th>Cours</th>
+                <th>Statut</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for child in children %}
+            <tr>
+                <td>{{ child.id }}</td>
+                <td>{{ child.nom }}</td>
+                <td>{{ child.prenom }}</td>
+                <td>{{ child.dateNaissance ? child.dateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ child.numeroParent }}</td>
+                <td>{{ child.email }}</td>
+                <td>{{ child.niveau }}</td>
+                <td>{{ child.cours }}</td>
+                <td>{{ child.statut }}</td>
+                <td>
+                    <a href="{{ path('child_show', {'id': child.id}) }}">show</a>
+                    <a href="{{ path('child_edit', {'id': child.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('child_new') }}">Create new</a>
+{% endblock %}
