@@ -1,0 +1,54 @@
+.article {
+  border: solid;
+  border-radius: 15px;
+  width: 60%;
+  margin-left: 10%;
+  background-color: white;
+}
+
+.titre {
+  text-align: center;
+}
+
+.date {
+  text-align: center;
+  font-size: small;
+  margin-top: -10px;
+}
+
+.content {
+  margin: 2%;
+}
+
+.titre a {
+  text-decoration: none;
+  color: rgb(171, 185, 183);
+}
+
+.edition {
+  margin-left: 95%;
+  margin-bottom: -30px;
+}
+
+.edition img {
+  width: 30px;
+  height: 30px;
+}
+
+.nouveau img {
+  width: 30px;
+  height: 30px;
+}
+
+.container-titre {
+  display: flex;
+  align-items: baseline;
+}
+
+.nouveau {
+  margin-left: 1%;
+}
+
+.actu {
+  margin-left: 2%;
+}

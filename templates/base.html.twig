@@ -8,16 +8,32 @@
 		</title>
 		{% block stylesheets %}
 			<link rel="stylesheet" type="text/css" href="{{ asset('style/navbar.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('style/news/article.css') }}">
+
 		{% endblock %}
 
 		{% block javascripts %}{% endblock %}
 	</head>
 	<body>
-		<nav class="topnav">
-			<a href="">Home</a>
-			<a href="{{ path("news_index") }}">Infos</a>
-			<a href="{{path("contact")}}">Contact</a>
-			<a href="{{ path("app_login") }}">Login</a>
+		<nav class="navbar">
+			<a href="{{ path("news_index") }}">Actualités</a>
+			<div class="dropdown">
+				<button class="dropbtn">Le club
+					<i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+					<a href="#">Qui sommes-nous</a>
+					<a href="{{path("contact")}}">Contact</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn">Tableau de bord</button>
+				<i class="fa fa-caret-down"></i>
+				<div class="dropdown-content">
+					<a href="">Gestion des membres</a>
+				</div>
+			</div>
+			<a href="{{ path("app_login") }}">Se connecter</a>
 			<a href='{{ path("app_register") }}'>Inscription</a>
 		</nav>
 		{% block body %}{% endblock %}
