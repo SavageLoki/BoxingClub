@@ -22,4 +22,14 @@ class DashboardController extends AbstractController
             'controller_name' => 'DashboardController',
         ]);
     }
+
+    /**
+     * @Route("/dashboard/course", name="course_management")
+     */
+    public function courseManagement(): Response
+    {
+        return $this->render('dashboard/courseManagement.html.twig', [
+            'controller_name' => 'DashboardController',
+        ]);
+    }
 }

@@ -28,7 +28,7 @@ class ClassRegistrationType extends AbstractType
             ])
             ->add('cours', ChoiceType::class, [
                 'choices' => [
-                    'Samedi 10h' => 'class1',
+                    'Mardi 19h' => 'class1',
                     'Mercredi 14h' => 'class2'
                 ]
             ]);

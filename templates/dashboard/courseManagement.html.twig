@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Gestion des cours
+{% endblock %}
+
+{% block body %}
+	<h2>Tous les cours</h2>
+	{{ render(controller(
+            'App\\Controller\\CourseController:index'
+        )) }}
+{% endblock %}
