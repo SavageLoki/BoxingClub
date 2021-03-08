@@ -1,12 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DashboardController!
+{% block title %}Tableau de bord
 {% endblock %}
 
 {% block body %}
 
+	<h2>Nouveaux membres souhaitant s'inscrire</h2>
+
 	{{ render(controller(
             'App\\Controller\\ChildController:waiting'
+        )) }}
+
+	<h2>Tous les membres</h2>
+
+	{{ render(controller(
+            'App\\Controller\\ChildController:index'
         )) }}
 
 
