@@ -44,6 +44,11 @@ class Course
      */
     private $membre;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $maxMember;
+
     public function __construct()
     {
         $this->membre = new ArrayCollection();
@@ -128,6 +133,18 @@ class Course
                 $membre->setCoursValide(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMaxMember(): ?int
+    {
+        return $this->maxMember;
+    }
+
+    public function setMaxMember(int $maxMember): self
+    {
+        $this->maxMember = $maxMember;
 
         return $this;
     }

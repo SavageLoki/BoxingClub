@@ -111,10 +111,10 @@ class ChildController extends AbstractController
      */
     public function validate(Request $request, Child $child): Response
     {
-
-
         $entityManager = $this->getDoctrine()->getManager();
 
+        $course = $child->getCours();
+        // $child->setCoursValide();
         $child->setStatut('valide');
         $entityManager->flush();
 

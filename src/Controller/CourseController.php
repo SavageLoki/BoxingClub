@@ -69,7 +69,7 @@ class CourseController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('course_index');
+            return $this->redirectToRoute('course_management');
         }
 
         return $this->render('course/edit.html.twig', [
