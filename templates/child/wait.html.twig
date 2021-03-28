@@ -6,7 +6,6 @@
 			<tr>
 				<th>Nom</th>
 				<th>Prenom</th>
-				<th>Niveau</th>
 				<th>Cours</th>
 				<th>Actions</th>
 
@@ -17,8 +16,7 @@
 				<tr>
 					<td>{{ child.nom }}</td>
 					<td>{{ child.prenom }}</td>
-					<td>{{ child.niveau }}</td>
-					<td>{{ child.cours }}</td>
+					<td>{{ child.cours}}</td>
 					<td>
 						<a href="{{ path('child_show', {'id': child.id}) }}">Voir</a>
 						<a href="{{ path('child_validation', {'id': child.id}) }}">valider</a>

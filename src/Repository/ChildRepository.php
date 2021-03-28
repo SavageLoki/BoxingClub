@@ -51,7 +51,6 @@ class ChildRepository extends ServiceEntityRepository
     public function findByStatut($statut)
     {
         $query = $this->createQueryBuilder('child')
-            ->select('child.id, child.nom, child.prenom, child.cours, child.niveau')
             ->where('child.statut = :attente')
             ->setParameter('attente', $statut);
 

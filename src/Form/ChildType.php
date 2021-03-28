@@ -17,10 +17,8 @@ class ChildType extends AbstractType
             ->add('dateNaissance')
             ->add('numeroParent')
             ->add('email')
-            ->add('niveau')
             ->add('cours')
-            ->add('statut')
-        ;
+            ->add('statut');
     }
 
     public function configureOptions(OptionsResolver $resolver)

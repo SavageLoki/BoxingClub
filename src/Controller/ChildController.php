@@ -113,7 +113,6 @@ class ChildController extends AbstractController
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        $course = $child->getCours();
         // $child->setCoursValide();
         $child->setStatut('valide');
         $entityManager->flush();

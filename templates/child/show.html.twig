@@ -1,54 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Child{% endblock %}
+{% block title %}Child
+{% endblock %}
 
 {% block body %}
-    <h1>Child</h1>
+	<h1>Child</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ child.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ child.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ child.prenom }}</td>
-            </tr>
-            <tr>
-                <th>DateNaissance</th>
-                <td>{{ child.dateNaissance ? child.dateNaissance|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>NumeroParent</th>
-                <td>{{ child.numeroParent }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ child.email }}</td>
-            </tr>
-            <tr>
-                <th>Niveau</th>
-                <td>{{ child.niveau }}</td>
-            </tr>
-            <tr>
-                <th>Cours</th>
-                <td>{{ child.cours }}</td>
-            </tr>
-            <tr>
-                <th>Statut</th>
-                <td>{{ child.statut }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ child.id }}</td>
+			</tr>
+			<tr>
+				<th>Nom</th>
+				<td>{{ child.nom }}</td>
+			</tr>
+			<tr>
+				<th>Prenom</th>
+				<td>{{ child.prenom }}</td>
+			</tr>
+			<tr>
+				<th>DateNaissance</th>
+				<td>{{ child.dateNaissance ? child.dateNaissance|date('Y-m-d') : '' }}</td>
+			</tr>
+			<tr>
+				<th>NumeroParent</th>
+				<td>{{ child.numeroParent }}</td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ child.email }}</td>
+			</tr>
+			<tr>
+				<th>Cours</th>
+				<td>{{ child.cours }}</td>
+			</tr>
+			<tr>
+				<th>Statut</th>
+				<td>{{ child.statut }}</td>
+			</tr>
+		</tbody>
+	</table>
 
-    <a href="{{ path('child_index') }}">back to list</a>
+	<a href="{{ path('child_index') }}">back to list</a>
 
-    <a href="{{ path('child_edit', {'id': child.id}) }}">edit</a>
+	<a href="{{ path('child_edit', {'id': child.id}) }}">edit</a>
 
-    {{ include('child/_delete_form.html.twig') }}
+	{{ include('child/_delete_form.html.twig') }}
 {% endblock %}
