@@ -6,8 +6,11 @@
 			<tr>
 				<th>Nom</th>
 				<th>Date</th>
+				<th>Heure de début</th>
+				<th>Heure de fin</th>
 				<th>Niveau</th>
 				<th>Public</th>
+				<th>Membres maximum</th>
 				<th>actions</th>
 			</tr>
 		</thead>
@@ -16,8 +19,11 @@
 				<tr>
 					<td>{{ course.Nom }}</td>
 					<td>{{ course.date }}</td>
+					<td>{{ course.heure }}</td>
+					<td>{{ course.fin }}</td>
 					<td>{{ course.niveau }}</td>
 					<td>{{ course.Public }}</td>
+					<td>{{course.maxMember}}</td>
 					<td>
 						<a href="{{ path('course_show', {'id': course.id}) }}">Voir</a>
 						<a href="{{ path('course_edit', {'id': course.id}) }}">Editer</a>

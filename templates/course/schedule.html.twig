@@ -1,0 +1,679 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+	<a href="{{ path('course_management') }}">Editer l'emploi du temps</a>
+	<div class="week">
+		<div class="heure"></div>
+		<div class="jour lundi">Lundi</div>
+		<div class="jour mardi">Mardi</div>
+		<div class="jour mercredi">Mercredi</div>
+		<div class="jour jeudi">Jeudi</div>
+		<div class="jour vendredi">Vendredi</div>
+		<div class="jour samedi">Samedi</div>
+		<div class="jour dimanche">Dimanche</div>
+		<div class="horaire debut-9h">9H</div>
+		<div class="horaire debut-10h">10H</div>
+		<div class="horaire debut-11h">11H</div>
+		<div class="horaire debut-12h">12H</div>
+		<div class="horaire debut-13h">13H</div>
+		<div class="horaire debut-14h">14H</div>
+		<div class="horaire debut-15h">15H</div>
+		<div class="horaire debut-16h">16H</div>
+		<div class="horaire debut-17h">17H</div>
+		<div class="horaire debut-18h">18H</div>
+		<div class="horaire debut-19h">19H</div>
+		<div class="horaire debut-20h">20H</div>
+		<div class="horaire debut-21h">21H</div>
+		{% for item in cours %}
+			{% if item.date == "Lundi" %}
+				{% if item.heure == "9h"%}
+					{% if item.fin == "10h"%}
+						<div class="lundi debut-9h fin-10h">{{item.nom}}
+
+						</div>
+					{% elseif item.fin == "11h"%}
+						<div class="lundi debut-9h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="lundi debut-9h fin-12h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "10h" %}
+					{% if item.fin == "11h"%}
+						<div class="lundi debut-10h fin-11h">{{item.nom}}
+
+						</div>
+					{% elseif item.fin == "12h"%}
+						<div class="lundi debut-10h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="lundi debut-10h fin-13h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "11h" %}
+					{% if item.fin == "12h"%}
+						<div class="lundi debut-11h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="lundi debut-11h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="lundi debut-11h fin-14h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "12h" %}
+					{% if item.fin == "13h"%}
+						<div class="lundi debut-12h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="lundi debut-12h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="lundi debut-12h fin-15h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "13h" %}
+					{% if item.fin == "14h"%}
+						<div class="lundi debut-13h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="lundi debut-13h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="lundi debut-13h fin-16h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "14h" %}
+					{% if item.fin == "15h"%}
+						<div class="lundi debut-14h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="lundi debut-14h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="lundi debut-14h fin-17h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "15h" %}
+					{% if item.fin == "16h"%}
+						<div class="lundi debut-15h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="lundi debut-15h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="lundi debut-15h fin-18h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "16h" %}
+					{% if item.fin == "17h"%}
+						<div class="lundi debut-16h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="lundi debut-16h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="lundi debut-16h fin-19h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "17h" %}
+					{% if item.fin == "18h"%}
+						<div class="lundi debut-17h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="lundi debut-17h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="lundi debut-17h fin-20h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "18h" %}
+					{% if item.fin == "19h"%}
+						<div class="lundi debut-18h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="lundi debut-18h fin-20h">{{item.nom}}</div>
+					{% elseif item.fin == "21h"%}
+						<div class="lundi debut-18h fin-21h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+			{% if item.date == "Mardi" %}
+				{% if item.heure == "9h"%}
+					{% if item.fin == "10h"%}
+						<div class="mardi debut-9h fin-10h">{{item.nom}}</div>
+					{% elseif item.fin == "11h"%}
+						<div class="mardi debut-9h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="mardi debut-9h fin-12h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "10h" %}
+					{% if item.fin == "11h"%}
+						<div class="mardi debut-10h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="mardi debut-10h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="mardi debut-10h fin-13h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "11h" %}
+					{% if item.fin == "12h"%}
+						<div class="mardi debut-11h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="mardi debut-11h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="mardi debut-11h fin-14h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "12h" %}
+					{% if item.fin == "13h"%}
+						<div class="mardi debut-12h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="mardi debut-12h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="mardi debut-12h fin-15h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "13h" %}
+					{% if item.fin == "14h"%}
+						<div class="mardi debut-13h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="mardi debut-13h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="mardi debut-13h fin-16h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "14h" %}
+					{% if item.fin == "15h"%}
+						<div class="mardi debut-14h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="mardi debut-14h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="mardi debut-14h fin-17h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "15h" %}
+					{% if item.fin == "16h"%}
+						<div class="mardi debut-15h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="mardi debut-15h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="mardi debut-15h fin-18h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "16h" %}
+					{% if item.fin == "17h"%}
+						<div class="mardi debut-16h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="mardi debut-16h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="mardi debut-16h fin-19h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "17h" %}
+					{% if item.fin == "18h"%}
+						<div class="mardi debut-17h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="mardi debut-17h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="mardi debut-17h fin-20h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "18h" %}
+					{% if item.fin == "19h"%}
+						<div class="mardi debut-18h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="mardi debut-18h fin-20h">{{item.nom}}</div>
+					{% elseif item.fin == "21h"%}
+						<div class="mardi debut-18h fin-21h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+			{% if item.date == "Mercredi" %}
+				{% if item.heure == "9h"%}
+					{% if item.fin == "10h"%}
+						<div class="mercredi debut-9h fin-10h">{{item.nom}}</div>
+					{% elseif item.fin == "11h"%}
+						<div class="mercredi debut-9h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="mercredi debut-9h fin-12h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "10h" %}
+					{% if item.fin == "11h"%}
+						<div class="mercredi debut-10h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="mercredi debut-10h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="mercredi debut-10h fin-13h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "11h" %}
+					{% if item.fin == "12h"%}
+						<div class="mercredi debut-11h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="mercredi debut-11h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="mercredi debut-11h fin-14h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "12h" %}
+					{% if item.fin == "13h"%}
+						<div class="mercredi debut-12h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="mercredi debut-12h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="mercredi debut-12h fin-15h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "13h" %}
+					{% if item.fin == "14h"%}
+						<div class="mercredi debut-13h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="mercredi debut-13h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="mercredi debut-13h fin-16h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "14h" %}
+					{% if item.fin == "15h"%}
+						<div class="mercredi debut-14h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="mercredi debut-14h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="mercredi debut-14h fin-17h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "15h" %}
+					{% if item.fin == "16h"%}
+						<div class="mercredi debut-15h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="mercredi debut-15h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="mercredi debut-15h fin-18h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "16h" %}
+					{% if item.fin == "17h"%}
+						<div class="mercredi debut-16h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="mercredi debut-16h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="mercredi debut-16h fin-19h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "17h" %}
+					{% if item.fin == "18h"%}
+						<div class="mercredi debut-17h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="mercredi debut-17h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="mercredi debut-17h fin-20h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "18h" %}
+					{% if item.fin == "19h"%}
+						<div class="mercredi debut-18h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="mercredi debut-18h fin-20h">{{item.nom}}</div>
+					{% elseif item.fin == "21h"%}
+						<div class="mercredi debut-18h fin-21h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+			{% if item.date == "Jeudi" %}
+				{% if item.heure == "9h"%}
+					{% if item.fin == "10h"%}
+						<div class="jeudi debut-9h fin-10h">{{item.nom}}</div>
+					{% elseif item.fin == "11h"%}
+						<div class="jeudi debut-9h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="jeudi debut-9h fin-12h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "10h" %}
+					{% if item.fin == "11h"%}
+						<div class="jeudi debut-10h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="jeudi debut-10h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="jeudi debut-10h fin-13h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "11h" %}
+					{% if item.fin == "12h"%}
+						<div class="jeudi debut-11h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="jeudi debut-11h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="jeudi debut-11h fin-14h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "12h" %}
+					{% if item.fin == "13h"%}
+						<div class="jeudi debut-12h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="jeudi debut-12h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="jeudi debut-12h fin-15h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "13h" %}
+					{% if item.fin == "14h"%}
+						<div class="jeudi debut-13h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="jeudi debut-13h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="jeudi debut-13h fin-16h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "14h" %}
+					{% if item.fin == "15h"%}
+						<div class="jeudi debut-14h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="jeudi debut-14h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="jeudi debut-14h fin-17h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "15h" %}
+					{% if item.fin == "16h"%}
+						<div class="jeudi debut-15h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="jeudi debut-15h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="jeudi debut-15h fin-18h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "16h" %}
+					{% if item.fin == "17h"%}
+						<div class="jeudi debut-16h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="jeudi debut-16h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="jeudi debut-16h fin-19h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "17h" %}
+					{% if item.fin == "18h"%}
+						<div class="jeudi debut-17h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="jeudi debut-17h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="jeudi debut-17h fin-20h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "18h" %}
+					{% if item.fin == "19h"%}
+						<div class="jeudi debut-18h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="jeudi debut-18h fin-20h">{{item.nom}}</div>
+					{% elseif item.fin == "21h"%}
+						<div class="jeudi debut-18h fin-21h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+			{% if item.date == "Vendredi" %}
+				{% if item.heure == "9h"%}
+					{% if item.fin == "10h"%}
+						<div class="vendredi debut-9h fin-10h">{{item.nom}}</div>
+					{% elseif item.fin == "11h"%}
+						<div class="vendredi debut-9h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="vendredi debut-9h fin-12h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "10h" %}
+					{% if item.fin == "11h"%}
+						<div class="vendredi debut-10h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="vendredi debut-10h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="vendredi debut-10h fin-13h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "11h" %}
+					{% if item.fin == "12h"%}
+						<div class="vendredi debut-11h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="vendredi debut-11h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="vendredi debut-11h fin-14h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "12h" %}
+					{% if item.fin == "13h"%}
+						<div class="vendredi debut-12h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="vendredi debut-12h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="vendredi debut-12h fin-15h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "13h" %}
+					{% if item.fin == "14h"%}
+						<div class="vendredi debut-13h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="vendredi debut-13h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="vendredi debut-13h fin-16h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "14h" %}
+					{% if item.fin == "15h"%}
+						<div class="vendredi debut-14h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="vendredi debut-14h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="vendredi debut-14h fin-17h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "15h" %}
+					{% if item.fin == "16h"%}
+						<div class="vendredi debut-15h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="vendredi debut-15h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="vendredi debut-15h fin-18h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "16h" %}
+					{% if item.fin == "17h"%}
+						<div class="vendredi debut-16h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="vendredi debut-16h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="vendredi debut-16h fin-19h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "17h" %}
+					{% if item.fin == "18h"%}
+						<div class="vendredi debut-17h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="vendredi debut-17h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="vendredi debut-17h fin-20h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "18h" %}
+					{% if item.fin == "19h"%}
+						<div class="vendredi debut-18h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="vendredi debut-18h fin-20h">{{item.nom}}</div>
+					{% elseif item.fin == "21h"%}
+						<div class="vendredi debut-18h fin-21h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+			{% if item.date == "Samedi" %}
+				{% if item.heure == "9h"%}
+					{% if item.fin == "10h"%}
+						<div class="samedi debut-9h fin-10h">{{item.nom}}</div>
+					{% elseif item.fin == "11h"%}
+						<div class="samedi debut-9h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="samedi debut-9h fin-12h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "10h" %}
+					{% if item.fin == "11h"%}
+						<div class="samedi debut-10h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="samedi debut-10h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="samedi debut-10h fin-13h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "11h" %}
+					{% if item.fin == "12h"%}
+						<div class="samedi debut-11h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="samedi debut-11h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="samedi debut-11h fin-14h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "12h" %}
+					{% if item.fin == "13h"%}
+						<div class="samedi debut-12h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="samedi debut-12h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="samedi debut-12h fin-15h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "13h" %}
+					{% if item.fin == "14h"%}
+						<div class="samedi debut-13h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="samedi debut-13h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="samedi debut-13h fin-16h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "14h" %}
+					{% if item.fin == "15h"%}
+						<div class="samedi debut-14h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="samedi debut-14h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="samedi debut-14h fin-17h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "15h" %}
+					{% if item.fin == "16h"%}
+						<div class="samedi debut-15h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="samedi debut-15h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="samedi debut-15h fin-18h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "16h" %}
+					{% if item.fin == "17h"%}
+						<div class="samedi debut-16h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="samedi debut-16h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="samedi debut-16h fin-19h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "17h" %}
+					{% if item.fin == "18h"%}
+						<div class="samedi debut-17h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="samedi debut-17h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="samedi debut-17h fin-20h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "18h" %}
+					{% if item.fin == "19h"%}
+						<div class="samedi debut-18h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="samedi debut-18h fin-20h">{{item.nom}}</div>
+					{% elseif item.fin == "21h"%}
+						<div class="samedi debut-18h fin-21h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+			{% if item.date == "Dimanche" %}
+				{% if item.heure == "9h"%}
+					{% if item.fin == "10h"%}
+						<div class="dimanche debut-9h fin-10h">{{item.nom}}</div>
+					{% elseif item.fin == "11h"%}
+						<div class="dimanche debut-9h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="dimanche debut-9h fin-12h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "10h" %}
+					{% if item.fin == "11h"%}
+						<div class="dimanche debut-10h fin-11h">{{item.nom}}</div>
+					{% elseif item.fin == "12h"%}
+						<div class="dimanche debut-10h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="dimanche debut-10h fin-13h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "11h" %}
+					{% if item.fin == "12h"%}
+						<div class="dimanche debut-11h fin-12h">{{item.nom}}</div>
+					{% elseif item.fin == "13h"%}
+						<div class="dimanche debut-11h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="dimanche debut-11h fin-14h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "12h" %}
+					{% if item.fin == "13h"%}
+						<div class="dimanche debut-12h fin-13h">{{item.nom}}</div>
+					{% elseif item.fin == "14h"%}
+						<div class="dimanche debut-12h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="dimanche debut-12h fin-15h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "13h" %}
+					{% if item.fin == "14h"%}
+						<div class="dimanche debut-13h fin-14h">{{item.nom}}</div>
+					{% elseif item.fin == "15h"%}
+						<div class="dimanche debut-13h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="dimanche debut-13h fin-16h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "14h" %}
+					{% if item.fin == "15h"%}
+						<div class="dimanche debut-14h fin-15h">{{item.nom}}</div>
+					{% elseif item.fin == "16h"%}
+						<div class="dimanche debut-14h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="dimanche debut-14h fin-17h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "15h" %}
+					{% if item.fin == "16h"%}
+						<div class="dimanche debut-15h fin-16h">{{item.nom}}</div>
+					{% elseif item.fin == "17h"%}
+						<div class="dimanche debut-15h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="dimanche debut-15h fin-18h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "16h" %}
+					{% if item.fin == "17h"%}
+						<div class="dimanche debut-16h fin-17h">{{item.nom}}</div>
+					{% elseif item.fin == "18h"%}
+						<div class="dimanche debut-16h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="dimanche debut-16h fin-19h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "17h" %}
+					{% if item.fin == "18h"%}
+						<div class="dimanche debut-17h fin-18h">{{item.nom}}</div>
+					{% elseif item.fin == "19h"%}
+						<div class="dimanche debut-17h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="dimanche debut-17h fin-20h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+				{% if item.heure == "18h" %}
+					{% if item.fin == "19h"%}
+						<div class="dimanche debut-18h fin-19h">{{item.nom}}</div>
+					{% elseif item.fin == "20h"%}
+						<div class="dimanche debut-18h fin-20h">{{item.nom}}</div>
+					{% elseif item.fin == "21h"%}
+						<div class="dimanche debut-18h fin-21h">{{item.nom}}</div>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	</div>
+{% endblock %}

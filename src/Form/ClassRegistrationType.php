@@ -26,16 +26,13 @@ class ClassRegistrationType extends AbstractType
             ->add('dateNaissance')
             ->add('numeroParent')
             ->add('email')
-            ->add('niveau')
-            ->add('cours')
-            ->add('cours_valide', ChoiceType::class, [
+            ->add('cours', ChoiceType::class, [
                 'choices' => [
-                    'Mardi 19h' => '1',
-                    'Mercredi 14h' => '2'
+                    'Lundi 9h' => '1'
                 ]
             ]);
 
-        $builder->get('cours_valide')->addModelTransformer($this->transformer);
+        $builder->get('cours')->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver)

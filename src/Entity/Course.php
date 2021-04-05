@@ -54,6 +54,16 @@ class Course
      */
     private $members;
 
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $heure;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $fin;
+
     public function __construct()
     {
         $this->members = new ArrayCollection();
@@ -113,6 +123,18 @@ class Course
         return $this;
     }
 
+    public function getMaxMember(): ?string
+    {
+        return $this->maxMember;
+    }
+
+    public function setMaxMember(string $maxMember): self
+    {
+        $this->maxMember = $maxMember;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Child[]
      */
@@ -146,5 +168,29 @@ class Course
     public function __toString()
     {
         return $this->getNom();
+    }
+
+    public function getHeure(): ?string
+    {
+        return $this->heure;
+    }
+
+    public function setHeure(string $heure): self
+    {
+        $this->heure = $heure;
+
+        return $this;
+    }
+
+    public function getFin(): ?string
+    {
+        return $this->fin;
+    }
+
+    public function setFin(string $fin): self
+    {
+        $this->fin = $fin;
+
+        return $this;
     }
 }

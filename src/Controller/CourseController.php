@@ -49,6 +49,16 @@ class CourseController extends AbstractController
     }
 
     /**
+     * @Route("/schedule", name="schedule", methods={"GET", "POST"})
+     */
+    public function schedule(CourseRepository $repository): Response
+    {
+        $cours = $repository->findAll();
+
+        return $this->render('course/schedule.html.twig', ['cours' => $cours]);
+    }
+
+    /**
      * @Route("/{id}", name="course_show", methods={"GET"})
      */
     public function show(Course $course): Response

@@ -16,7 +16,9 @@ class CourseType extends AbstractType
             ->add('date')
             ->add('niveau')
             ->add('Public')
-        ;
+            ->add('maxMember')
+            ->add('heure')
+            ->add('fin');
     }
 
     public function configureOptions(OptionsResolver $resolver)
