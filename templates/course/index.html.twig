@@ -1,0 +1,41 @@
+{% block body %}
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Date</th>
+				<th>Heure de début</th>
+				<th>Heure de fin</th>
+				<th>Niveau</th>
+				<th>Public</th>
+				<th>Membres maximum</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for course in courses %}
+				<tr>
+					<td>{{ course.Nom }}</td>
+					<td>{{ course.date }}</td>
+					<td>{{ course.heure }}</td>
+					<td>{{ course.fin }}</td>
+					<td>{{ course.niveau }}</td>
+					<td>{{ course.Public }}</td>
+					<td>{{course.maxMember}}</td>
+					<td>
+						<a href="{{ path('course_show', {'id': course.id}) }}">Voir</a>
+						<a href="{{ path('course_edit', {'id': course.id}) }}">Editer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('course_new') }}">Créer un nouveau cours</a>
+{% endblock %}

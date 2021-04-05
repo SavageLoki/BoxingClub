@@ -1,0 +1,162 @@
+.week {
+  margin-top: 2%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px 100px;
+}
+
+.jour {
+  grid-row-start: 1;
+  grid-row-end: 1;
+  border-right: solid thin;
+  border-top: solid thin;
+  border-bottom: solid thin;
+}
+
+.horaire {
+  grid-column: 1;
+  border: solid thin;
+  text-align: center;
+}
+
+.lundi {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  text-align: center;
+}
+
+.mardi {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  text-align: center;
+}
+
+.mercredi {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  text-align: center;
+}
+.jeudi {
+  grid-column-start: 5;
+  grid-column-end: 5;
+  text-align: center;
+}
+
+.vendredi {
+  grid-column-start: 6;
+  grid-column-end: 6;
+  text-align: center;
+}
+
+.samedi {
+  grid-column-start: 7;
+  grid-column-end: 7;
+  text-align: center;
+}
+
+.dimanche {
+  grid-column-start: 8;
+  grid-column-end: 8;
+  text-align: center;
+}
+
+.heure {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: solid thin;
+}
+
+.debut-9h {
+  grid-row-start: 2;
+  border: solid thin;
+}
+
+.debut-10h {
+  grid-row-start: 3;
+  border: solid thin;
+}
+
+.debut-11h {
+  grid-row-start: 4;
+  border: solid thin;
+}
+
+.debut-12h {
+  grid-row-start: 5;
+  border: solid thin;
+}
+
+.debut-13h {
+  grid-row-start: 6;
+  border: solid thin;
+}
+.debut-14h {
+  grid-row-start: 7;
+  border: solid thin;
+}
+.debut-15h {
+  grid-row-start: 8;
+  border: solid thin;
+}
+.debut-16h {
+  grid-row-start: 9;
+  border: solid thin;
+}
+.debut-17h {
+  grid-row-start: 10;
+  border: solid thin;
+}
+.debut-18h {
+  grid-row-start: 11;
+  border: solid thin;
+}
+.debut-19h {
+  grid-row-start: 12;
+}
+.debut-20h {
+  grid-row-start: 13;
+}
+.debut-21h {
+  grid-row-start: 14;
+}
+
+.fin-10h {
+  grid-row-end: 3;
+}
+.fin-11h {
+  grid-row-end: 4;
+}
+.fin-12h {
+  grid-row-end: 5;
+}
+.fin-13h {
+  grid-row-end: 6;
+}
+.fin-14h {
+  grid-row-end: 7;
+}
+.fin-15h {
+  grid-row-end: 8;
+}
+.fin-16h {
+  grid-row-end: 9;
+}
+.fin-17h {
+  grid-row-end: 10;
+}
+.fin-18h {
+  grid-row-end: 11;
+}
+.fin-19h {
+  grid-row-end: 12;
+}
+.fin-20h {
+  grid-row-end: 13;
+}
+
+.fin-21h {
+  grid-row-end: 14;
+}

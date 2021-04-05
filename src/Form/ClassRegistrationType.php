@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Child;
+use App\Form\DataTransformer\NameToCourseTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -10,6 +11,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ClassRegistrationType extends AbstractType
 {
+    private $transformer;
+
+    public function __construct(NameToCourseTransformer $transformer)
+    {
+        $this->transformer = $transformer;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -18,20 +26,13 @@ class ClassRegistrationType extends AbstractType
             ->add('dateNaissance')
             ->add('numeroParent')
             ->add('email')
-            ->add('niveau', ChoiceType::class, [
-                'choices' => [
-                    'Débutant' => 'beginner',
-                    'Moyen' => 'middle',
-                    'Confirmé' => 'highLevel'
-
-                ]
-            ])
             ->add('cours', ChoiceType::class, [
                 'choices' => [
-                    'Samedi 10h' => 'class1',
-                    'Mercredi 14h' => 'class2'
+                    'Lundi 9h' => '1'
                 ]
             ]);
+
+        $builder->get('cours')->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver)

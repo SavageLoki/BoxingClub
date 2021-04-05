@@ -2,29 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Child;
+use App\Entity\Course;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChildType extends AbstractType
+class CourseType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('dateNaissance')
-            ->add('numeroParent')
-            ->add('email')
-            ->add('cours')
-            ->add('statut');
+            ->add('Nom')
+            ->add('date')
+            ->add('niveau')
+            ->add('Public')
+            ->add('maxMember')
+            ->add('heure')
+            ->add('fin');
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Child::class,
+            'data_class' => Course::class,
         ]);
     }
 }

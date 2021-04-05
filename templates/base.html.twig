@@ -9,7 +9,7 @@
 		{% block stylesheets %}
 			<link rel="stylesheet" type="text/css" href="{{ asset('style/navbar.css') }}">
 			<link rel="stylesheet" type="text/css" href="{{ asset('style/news/article.css') }}">
-
+			<link rel="stylesheet" type="text/css" href="{{ asset('style/schedule.css') }}">
 		{% endblock %}
 
 		{% block javascripts %}{% endblock %}
@@ -31,6 +31,7 @@
 				<i class="fa fa-caret-down"></i>
 				<div class="dropdown-content">
 					<a href="{{path("dashboard")}}">Gestion des membres</a>
+					<a href="{{path("course_management")}}">Gestion des cours</a>
 				</div>
 			</div>
 			<a href="{{ path("app_login") }}">Se connecter</a>

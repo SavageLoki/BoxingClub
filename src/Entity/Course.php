@@ -44,10 +44,31 @@ class Course
      */
     private $membre;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $maxMember;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Child::class, mappedBy="cours")
+     */
+    private $members;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $heure;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $fin;
+
     public function __construct()
     {
-        $this->membre = new ArrayCollection();
+        $this->members = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -102,32 +123,73 @@ class Course
         return $this;
     }
 
+    public function getMaxMember(): ?string
+    {
+        return $this->maxMember;
+    }
+
+    public function setMaxMember(string $maxMember): self
+    {
+        $this->maxMember = $maxMember;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Child[]
      */
-    public function getMembre(): Collection
+    public function getMembers(): Collection
     {
-        return $this->membre;
+        return $this->members;
     }
 
-    public function addMembre(Child $membre): self
+    public function addMember(Child $member): self
     {
-        if (!$this->membre->contains($membre)) {
-            $this->membre[] = $membre;
-            $membre->setCoursValide($this);
+        if (!$this->members->contains($member)) {
+            $this->members[] = $member;
+            $member->setCours($this);
         }
 
         return $this;
     }
 
-    public function removeMembre(Child $membre): self
+    public function removeMember(Child $member): self
     {
-        if ($this->membre->removeElement($membre)) {
+        if ($this->members->removeElement($member)) {
             // set the owning side to null (unless already changed)
-            if ($membre->getCoursValide() === $this) {
-                $membre->setCoursValide(null);
+            if ($member->getCours() === $this) {
+                $member->setCours(null);
             }
         }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+
+    public function getHeure(): ?string
+    {
+        return $this->heure;
+    }
+
+    public function setHeure(string $heure): self
+    {
+        $this->heure = $heure;
+
+        return $this;
+    }
+
+    public function getFin(): ?string
+    {
+        return $this->fin;
+    }
+
+    public function setFin(string $fin): self
+    {
+        $this->fin = $fin;
 
         return $this;
     }

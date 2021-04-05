@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\ChildRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @ORM\Entity(repositoryClass=ChildRepository::class)
@@ -43,24 +46,16 @@ class Child
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $niveau;
-
-    /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $cours;
-
-    /**
      * @ORM\Column(type="string", length=30, nullable=true)
      */
     private $statut;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Course::class, inversedBy="membre")
+     * @ORM\ManyToOne(targetEntity=Course::class, inversedBy="members")
      */
-    private $coursValide;
+    private $cours;
+
+
 
     public function getId(): ?int
     {
@@ -127,30 +122,6 @@ class Child
         return $this;
     }
 
-    public function getNiveau(): ?string
-    {
-        return $this->niveau;
-    }
-
-    public function setNiveau(string $niveau): self
-    {
-        $this->niveau = $niveau;
-
-        return $this;
-    }
-
-    public function getCours(): ?string
-    {
-        return $this->cours;
-    }
-
-    public function setCours(string $cours): self
-    {
-        $this->cours = $cours;
-
-        return $this;
-    }
-
     public function getStatut(): ?string
     {
         return $this->statut;
@@ -163,14 +134,14 @@ class Child
         return $this;
     }
 
-    public function getCoursValide(): ?Course
+    public function getCours(): ?Course
     {
-        return $this->coursValide;
+        return $this->cours;
     }
 
-    public function setCoursValide(?Course $coursValide): self
+    public function setCours(?Course $cours): self
     {
-        $this->coursValide = $coursValide;
+        $this->cours = $cours;
 
         return $this;
     }
