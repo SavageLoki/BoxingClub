@@ -64,9 +64,15 @@ class Course
      */
     private $fin;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Absence::class, mappedBy="courseName")
+     */
+    private $absences;
+
     public function __construct()
     {
         $this->members = new ArrayCollection();
+        $this->absences = new ArrayCollection();
     }
 
 
@@ -190,6 +196,36 @@ class Course
     public function setFin(string $fin): self
     {
         $this->fin = $fin;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Absence[]
+     */
+    public function getAbsences(): Collection
+    {
+        return $this->absences;
+    }
+
+    public function addAbsence(Absence $absence): self
+    {
+        if (!$this->absences->contains($absence)) {
+            $this->absences[] = $absence;
+            $absence->setCourseName($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAbsence(Absence $absence): self
+    {
+        if ($this->absences->removeElement($absence)) {
+            // set the owning side to null (unless already changed)
+            if ($absence->getCourseName() === $this) {
+                $absence->setCourseName(null);
+            }
+        }
 
         return $this;
     }
