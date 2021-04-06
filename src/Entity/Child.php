@@ -55,6 +55,16 @@ class Child
      */
     private $cours;
 
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $paiement;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $datePaiement;
+
 
 
     public function getId(): ?int
@@ -142,6 +152,30 @@ class Child
     public function setCours(?Course $cours): self
     {
         $this->cours = $cours;
+
+        return $this;
+    }
+
+    public function getPaiement(): ?string
+    {
+        return $this->paiement;
+    }
+
+    public function setPaiement(string $paiement): self
+    {
+        $this->paiement = $paiement;
+
+        return $this;
+    }
+
+    public function getDatePaiement(): ?\DateTimeInterface
+    {
+        return $this->datePaiement;
+    }
+
+    public function setDatePaiement(?\DateTimeInterface $datePaiement): self
+    {
+        $this->datePaiement = $datePaiement;
 
         return $this;
     }

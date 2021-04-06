@@ -1,0 +1,33 @@
+{% block body %}
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prenom</th>
+				<th>Cours</th>
+				<th>Paiement</th>
+				<th>Action</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for child in children %}
+				<tr>
+					<td>{{ child.nom }}</td>
+					<td>{{ child.prenom }}</td>
+					<td>{{ child.cours}}</td>
+					<td>{{ child.paiement}}</td>
+					<td>
+						<a href="{{ path('child_paiement_validation', {'id': child.id}) }}">Valider paiement</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="10">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

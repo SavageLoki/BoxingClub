@@ -57,4 +57,14 @@ class ChildRepository extends ServiceEntityRepository
         $queryresult = $query->getQuery();
         return $queryresult->execute();
     }
+
+    public function findByPaiement($paiement)
+    {
+        $query = $this->createQueryBuilder('child')
+            ->where('child.paiement = :paiement')
+            ->setParameter('paiement', $paiement);
+
+        $queryResult = $query->getQuery();
+        return $queryResult->execute();
+    }
 }

@@ -32,4 +32,14 @@ class DashboardController extends AbstractController
             'controller_name' => 'DashboardController',
         ]);
     }
+
+    /**
+     * @Route("/dashboard/paiement", name="paiement_management")
+     */
+    public function paiementManagement(): Response
+    {
+        return $this->render('dashboard/paiementManagement.html.twig', [
+            'controller_name' => 'DashboardController',
+        ]);
+    }
 }

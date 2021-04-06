@@ -59,6 +59,15 @@ class ChildController extends AbstractController
         return $this->render('child/wait.html.twig', ['children' => $child]);
     }
 
+    /**
+     * @Route("/paiement", name="child_paiement")
+     */
+    public function waitPaiement(Request $request, ChildRepository $repository): Response
+    {
+        $child = $repository->findByPaiement('Non');
+        return $this->render('child/paiement.html.twig', ['children' => $child]);
+    }
+
 
     /**
      * @Route("/{id}", name="child_show", methods={"GET"})
@@ -109,15 +118,30 @@ class ChildController extends AbstractController
     /**
      * @Route("/validate/{id}", name="child_validation")
      */
-    public function validate(Request $request, Child $child): Response
+    public function validate(Child $child): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
 
-        // $child->setCoursValide();
         $child->setStatut('valide');
         $entityManager->flush();
 
         return $this->render('child/validation.html.twig', [
+            'id' => $child->getId(),
+        ]);
+    }
+
+    /**
+     * @Route("/validatePaiement/{id}", name="child_paiement_validation")
+     */
+    public function validatePaiement(Child $child): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $child->setPaiement('Oui');
+        $child->setDatePaiement(new \DateTime());
+        $entityManager->flush();
+
+        return $this->render('dashboard/paiementManagement.html.twig', [
             'id' => $child->getId(),
         ]);
     }
