@@ -42,4 +42,14 @@ class DashboardController extends AbstractController
             'controller_name' => 'DashboardController',
         ]);
     }
+
+    /**
+     * @Route("/dashboard/absence", name="absence_management")
+     */
+    public function absenceManagement(): Response
+    {
+        return $this->render('dashboard/absenceManagement.html.twig', [
+            'controller_name' => 'DashboardController',
+        ]);
+    }
 }

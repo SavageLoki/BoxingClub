@@ -154,6 +154,11 @@ class Child
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->getEmail();
+    }
+
     public function getCours(): ?Course
     {
         return $this->cours;

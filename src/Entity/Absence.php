@@ -68,6 +68,11 @@ class Absence
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->getDate();
+    }
+
     public function getMember(): ?Child
     {
         return $this->member;
