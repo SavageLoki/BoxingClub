@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Form;
+
+use App\Entity\Absence;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class AdminAbsenceType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('date')
+            ->add('motif')
+            ->add('member')
+            ->add('courseName')
+        ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => Absence::class,
+        ]);
+    }
+}

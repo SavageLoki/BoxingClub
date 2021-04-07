@@ -32,12 +32,24 @@
 				<th>Public</th>
 				<td>{{ course.Public }}</td>
 			</tr>
+			<tr>
+				<th>Membres
+				</th>
+				<td>
+					{% for member in course.members %}
+						{{member.nom}}
+						{{member.prenom}}
+					{% endfor %}
+				</td>
+			</tr>
 		</tbody>
 	</table>
 
 	<a href="{{ path('course_management') }}">back to list</a>
 
 	<a href="{{ path('course_edit', {'id': course.id}) }}">edit</a>
+
+	<a href="{{ path('absence_new_admin') }}">Un membre est absent</a>
 
 	{{ include('course/_delete_form.html.twig') }}
 {% endblock %}

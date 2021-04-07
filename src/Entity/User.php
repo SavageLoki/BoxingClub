@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @ORM\Table(name="`user`")
+ * @ORM\Table(name="`user`")    
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="userType", type="string")
  * @ORM\DiscriminatorMap({"admin" = "Admin", "child" = "Child"})
@@ -19,10 +19,10 @@ abstract class User implements UserInterface
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue 
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)

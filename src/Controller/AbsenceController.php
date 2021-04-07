@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Absence;
 use App\Entity\User;
 use App\Form\AbsenceType;
+use App\Form\AdminAbsenceType;
 use App\Repository\AbsenceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,12 +37,35 @@ class AbsenceController extends AbstractController
         $form->handleRequest($request);
 
         $user = $this->getUser();
-        $email = $user->getEmail();
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($absence);
-            $absence->setMember($email);
+            $absence->setMember($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('absence_index');
+        }
+
+        return $this->render('absence/new.html.twig', [
+            'absence' => $absence,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/newabsence", name="absence_new_admin", methods={"GET","POST"})
+     */
+    public function newAdmin(Request $request): Response
+    {
+        $absence = new Absence();
+        $form = $this->createForm(AdminAbsenceType::class, $absence);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($absence);
             $entityManager->flush();
 
             return $this->redirectToRoute('absence_index');

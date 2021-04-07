@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Child;
+use App\Entity\User;
 use App\Form\ChildType;
 use App\Repository\ChildRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -54,6 +55,7 @@ class ChildController extends AbstractController
     public function waiting(Request $request, ChildRepository $repository): Response
     {
 
+
         $child = $repository->findByStatut('attente');
 
         return $this->render('child/wait.html.twig', ['children' => $child]);
@@ -74,6 +76,8 @@ class ChildController extends AbstractController
      */
     public function show(Child $child): Response
     {
+
+        $child->getId();
         return $this->render('child/show.html.twig', [
             'child' => $child,
         ]);

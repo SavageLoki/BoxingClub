@@ -18,7 +18,7 @@ class Child extends User
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=30)
@@ -70,7 +70,6 @@ class Child extends User
     {
         $this->absences = new ArrayCollection();
     }
-
 
 
     public function getId(): ?int
@@ -141,7 +140,7 @@ class Child extends User
 
     public function __toString()
     {
-        return $this->getEmail();
+        return $this->getNom();
     }
 
     public function getCours(): ?Course

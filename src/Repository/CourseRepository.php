@@ -47,4 +47,14 @@ class CourseRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findbydate($cours)
+    {
+        $query = $this->createQueryBuilder('course')
+            ->where('course.nom LIKE :cours')
+            ->setParameters('cours', "%$cours%");
+
+        $queryresult = $query->getQuery();
+        return $queryresult->execute();
+    }
 }

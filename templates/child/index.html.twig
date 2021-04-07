@@ -18,7 +18,7 @@
 		<tbody>
 			{% for child in children %}
 				<tr>
-					<td>{{ child.nom }}</td>
+					<td>{{ child.id }}</td>
 					<td>{{ child.prenom }}</td>
 					<td>{{ child.dateNaissance ? child.dateNaissance|date('Y-m-d') : '' }}</td>
 					<td>{{ child.numeroParent }}</td>
@@ -26,8 +26,8 @@
 					<td>{{ child.cours }}</td>
 					<td>{{ child.statut }}</td>
 					<td>
-						<a href="{{ path('child_show', {'id': child.id}) }}">Voir</a>
-						<a href="{{ path('child_edit', {'id': child.id}) }}">Editer</a>
+						<a href="{{ path('child_show', {'id':child.id}) }}">Voir</a>
+						<a href="{{ path('child_edit', {'id':child.id}) }}">Editer</a>
 						{{ include('child/_delete_form.html.twig') }}
 
 					</td>

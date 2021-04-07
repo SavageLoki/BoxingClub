@@ -11,6 +11,7 @@
 				<th>Niveau</th>
 				<th>Public</th>
 				<th>Membres maximum</th>
+				<th>Membres</th>
 				<th>actions</th>
 			</tr>
 		</thead>
@@ -24,6 +25,12 @@
 					<td>{{ course.niveau }}</td>
 					<td>{{ course.Public }}</td>
 					<td>{{course.maxMember}}</td>
+					<td>
+						{% for member in course.members %}
+							{{member.nom}}
+							{{member.prenom}}
+						{% endfor %}
+					</td>
 					<td>
 						<a href="{{ path('course_show', {'id': course.id}) }}">Voir</a>
 						<a href="{{ path('course_edit', {'id': course.id}) }}">Editer</a>

@@ -16,12 +16,12 @@
 				<tr>
 					<td>{{ child.nom }}</td>
 					<td>{{ child.prenom }}</td>
-					<td>{{ child.cours}}</td>
-					<td>
-						<a href="{{ path('child_show', {'id': child.id}) }}">Voir</a>
-						<a href="{{ path('child_validation', {'id': child.id}) }}">valider</a>
-
-					</td>
+					<td>{{ child.id}}</td>
+					{#<td>
+																					<a href="{{ path('child_show', {'id': child.id}) }}">Voir</a>
+																					<a href="{{ path('child_validation', {'id': child.id}) }}">valider</a>
+															
+																				</td>#}
 				</tr>
 			{% else %}
 				<tr>
