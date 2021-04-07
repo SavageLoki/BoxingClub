@@ -11,7 +11,7 @@ use phpDocumentor\Reflection\Types\Integer;
 /**
  * @ORM\Entity(repositoryClass=ChildRepository::class)
  */
-class Child
+class Child extends User
 {
     /**
      * @ORM\Id
@@ -40,10 +40,6 @@ class Child
      */
     private $numeroParent;
 
-    /**
-     * @ORM\Column(type="string", length=40)
-     */
-    private $email;
 
     /**
      * @ORM\Column(type="string", length=30, nullable=true)
@@ -130,17 +126,6 @@ class Child
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
 
     public function getStatut(): ?string
     {
