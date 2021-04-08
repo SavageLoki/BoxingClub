@@ -3,7 +3,7 @@
   margin-left: 10%;
   display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px 100px;
+  grid-template-rows: 100px;
 }
 
 .jour {

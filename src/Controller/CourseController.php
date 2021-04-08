@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
 /**
@@ -29,6 +30,7 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/new", name="course_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -52,6 +54,7 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/schedule", name="schedule", methods={"GET", "POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function schedule(CourseRepository $repository): Response
     {
@@ -62,6 +65,7 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/{id}", name="course_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show(Course $course): Response
     {
@@ -72,6 +76,7 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="course_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Course $course): Response
     {
@@ -92,6 +97,7 @@ class CourseController extends AbstractController
 
     /**
      * @Route("/{id}", name="course_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Course $course): Response
     {

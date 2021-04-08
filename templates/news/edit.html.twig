@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit News{% endblock %}
+{% block title %}Editer l'actualité
+{% endblock %}
 
 {% block body %}
-    <h1>Edit News</h1>
+	<h1>Editer l'actualité</h1>
 
-    {{ include('news/_form.html.twig', {'button_label': 'Update'}) }}
+	<div class="formContact">
+		<div class="contenuFormContact">
+			{{ form_start(form) }}
+			<div class="champFormContact">{{form_widget(form.title)}}</div>
+			<div class="champFormContact">{{form_widget(form.content)}}</div>
+			<button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+			{{ form_end(form) }}
+			{{ include('news/_delete_form.html.twig') }}
+		</div>
 
-    <a href="{{ path('news_index') }}">back to list</a>
+	</div>
 
-    {{ include('news/_delete_form.html.twig') }}
+
+	<div class="back">
+		<a href="{{ path('news_index') }}"><img src="/pictures/back.PNG"></a>
+	</div>
 {% endblock %}

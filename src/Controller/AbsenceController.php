@@ -11,9 +11,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/absence")
+ * @IsGranted("ROLE_USER")
  */
 class AbsenceController extends AbstractController
 {
@@ -45,7 +47,7 @@ class AbsenceController extends AbstractController
             $absence->setMember($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('absence_index');
+            return $this->redirectToRoute('news_index');
         }
 
         return $this->render('absence/new.html.twig', [

@@ -6,6 +6,8 @@
 parameters:
 
 services:
+  comments:
+    class: App\Controller\CommentsController
   # default configuration for services in *this* file
   _defaults:
     autowire: true # Automatically injects dependencies in your services.

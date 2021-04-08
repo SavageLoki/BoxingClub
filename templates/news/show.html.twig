@@ -1,34 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}News{% endblock %}
+{% block title %}
+	{{news.title}}
+{% endblock %}
 
 {% block body %}
-    <h1>News</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ news.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ news.title }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ news.content }}</td>
-            </tr>
-            <tr>
-                <th>PublicationDate</th>
-                <td>{{ news.publicationDate ? news.publicationDate|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<div class="articleBis">
+		<div class="titreBis">
+			<h2>{{ news.title }}</h2>
+		</div>
+		<div class="datePubli">
+			<p>Le
+				{{news.publicationDate?news.publicationDate|date('d-m-y'):''}}</p>
+		</div>
+		<div class="content">
+			{{news.content}}
+		</div>
 
-    <a href="{{ path('news_index') }}">back to list</a>
+	</div>
 
-    <a href="{{ path('news_edit', {'id': news.id}) }}">edit</a>
+	<section class="comments" id="comments">
+		<div class="articleBis">
+			<div class="titreBis">
+				<h3>Commentaires</h3>
+			</div>
 
-    {{ include('news/_delete_form.html.twig') }}
-{% endblock %}
+			{{ render(controller(
+            'App\\Controller\\CommentsController::commentByBlog', {'id': news.id}
+        )) }}
+
+			<div class="newComment">
+
+				<button>
+					<div class='newCommentContent'>
+						<a href="{{ path('comments_new', {'id': news.id}) }}">Nouveau commentaire</a>
+					</div>
+				</button>
+
+			</div>
+		</div>
+	</section>
+</div>
+
+<div class="back">
+	<a href="{{ path('news_index') }}"><img src="/pictures/back.PNG"></a>
+</div>
+{% if is_granted('ROLE_ADMIN') %}
+	<a href="{{ path('news_edit', {'id': news.id}) }}">edit</a>
+
+	{{ include('news/_delete_form.html.twig') }}
+
+{% endif %}{% endblock %}

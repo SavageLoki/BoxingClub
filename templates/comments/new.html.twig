@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h1>Créer un nouveau commentaire</h1>
+	<div class="formContact">
+		<div class="contenuFormContact">
+			{{ form_start(form) }}
+			Votre nom:
+			<div class="champFormContact">{{ form_widget(form.author) }}</div>
+			Votre commentaire:
+			<div class="champFormContact">{{ form_widget(form.content) }}</div>
+			<button class="btn">{{ button_label|default('Enregistrer') }}</button>
+			{{ form_end(form) }}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+.formContact {
+  margin-top: 2%;
+  margin-left: 30%;
+  margin-right: 25%;
+  border: solid 3px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.contenuFormContact {
+  margin-top: 2%;
+  margin-left: 30%;
+  margin-bottom: 2%;
+}
+
+.champFormContact {
+  margin: 1%;
+}

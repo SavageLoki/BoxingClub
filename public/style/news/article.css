@@ -52,3 +52,57 @@
 .actu {
   margin-left: 2%;
 }
+
+.articleBis {
+  border: solid;
+  border-radius: 15px;
+  width: 60%;
+  margin-left: 10%;
+  background-color: white;
+  margin-top: 3%;
+}
+
+.titreBis {
+  text-align: center;
+  background-color: grey;
+  margin-top: 0;
+}
+
+.datePubli {
+  margin-top: -40px;
+  margin-left: 58%;
+  font-style: italic;
+}
+
+.commentaire {
+  margin: 2%;
+  border: solid 3px;
+  border-radius: 15px;
+}
+
+.contenuCommentaire {
+  margin: 2%;
+}
+
+.dateCommentaire {
+  margin-top: 1%;
+  text-align: right;
+  color: grey;
+  font-style: italic;
+  size: smaller;
+}
+
+.newComment {
+  margin: 2%;
+  text-decoration: none;
+  color: black;
+}
+
+.back img {
+  height: 70px;
+  width: 70px;
+}
+
+.back {
+  margin-top: 3%;
+}

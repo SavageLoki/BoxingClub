@@ -1,38 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Absence index
+{% block title %}Gestion des absences
 {% endblock %}
 
 {% block body %}
-	<h1>Absence index</h1>
+	<h1>Gestion des absences</h1>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Nom du membre</th>
-				<th>Date</th>
-				<th>Motif</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for absence in absences %}
-				<tr>
-					<td>{{ absence.member }}</td>
-					<td>{{ absence.date ? absence.date|date('Y-m-d') : '' }}</td>
-					<td>{{ absence.motif }}</td>
-					<td>
-						<a href="{{ path('absence_show', {'id': absence.id}) }}">show</a>
-						<a href="{{ path('absence_edit', {'id': absence.id}) }}">edit</a>
-					</td>
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="4">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+	<div class="absence">
+		<div class="absenceContenu">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nom du membre</th>
+						<th>Date</th>
+						<th>Motif</th>
 
-	<a href="{{ path('absence_new') }}">Create new</a>
+					</tr>
+				</thead>
+				<tbody>
+					{% for absence in absences %}
+						<tr>
+							<td>{{ absence.member }}</td>
+							<td>{{ absence.date ? absence.date|date('d-m-y') : '' }}</td>
+							<td>{{ absence.motif }}</td>
+
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="4">Pas d'absence</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="absencePic">
+		<a href="{{ path('absence_new_admin') }}"><img src="/pictures/new.png"></a>
+	</div>
 {% endblock %}

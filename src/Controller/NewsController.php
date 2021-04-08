@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\News;
 use App\Form\NewsType;
 use App\Repository\NewsRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/news")
@@ -27,6 +29,7 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/new", name="news_new", methods={"GET","POST"})
+     *  @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -35,6 +38,7 @@ class NewsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $news->setPublicationDate(new \DateTime());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($news);
             $entityManager->flush();
@@ -60,6 +64,7 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="news_edit", methods={"GET","POST"})
+     *  @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, News $news): Response
     {
@@ -80,10 +85,11 @@ class NewsController extends AbstractController
 
     /**
      * @Route("/{id}", name="news_delete", methods={"DELETE"})
+     *  @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, News $news): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$news->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $news->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($news);
             $entityManager->flush();

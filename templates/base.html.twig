@@ -10,6 +10,8 @@
 			<link rel="stylesheet" type="text/css" href="{{ asset('style/navbar.css') }}">
 			<link rel="stylesheet" type="text/css" href="{{ asset('style/news/article.css') }}">
 			<link rel="stylesheet" type="text/css" href="{{ asset('style/schedule.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('style/contact/formContact.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('style/absence/index.css') }}">
 		{% endblock %}
 
 		{% block javascripts %}{% endblock %}
@@ -26,27 +28,31 @@
 					<a href="{{path("contact")}}">Contact</a>
 				</div>
 			</div>
-			<div class="dropdown">
-				<button class="dropbtn">Les cours
+			{% if is_granted('ROLE_USER') %}
+				<div class="dropdown">
+					<button class="dropbtn">Les cours
+						<i class="fa fa-caret-down"></i>
+					</button>
+					<div class="dropdown-content">
+						<a href="{{path("schedule")}}">Emploi du temps</a>
+						<a href="{{path("absence_new")}}">Signaler une absence</a>
+					</div>
+				</div>
+			{% endif %}
+			{% if is_granted('ROLE_ADMIN') %}
+				<div class="dropdown">
+					<button class="dropbtn">Tableau de bord</button>
 					<i class="fa fa-caret-down"></i>
-				</button>
-				<div class="dropdown-content">
-					<a href="{{path("class_registration")}}">Pré-inscription</a>
-					<a href="{{path("absence_new")}}">Signaler une absence</a>
+					<div class="dropdown-content">
+						<a href="{{path("dashboard")}}">Gestion des membres</a>
+						<a href="{{path("course_management")}}">Gestion des cours</a>
+						<a href="{{path("absence_index")}}">Gestion des absences</a>
+					</div>
 				</div>
-			</div>
-			<div class="dropdown">
-				<button class="dropbtn">Tableau de bord</button>
-				<i class="fa fa-caret-down"></i>
-				<div class="dropdown-content">
-					<a href="{{path("dashboard")}}">Gestion des membres</a>
-					<a href="{{path("course_management")}}">Gestion des cours</a>
-					<a href="{{path("absence_index")}}">Gestion des absences</a>
-				</div>
-			</div>
+			{% endif %}
 			<a href="{{ path("app_login") }}">Se connecter</a>
 			<a href='{{ path("app_register") }}'>Inscription</a>
 		</nav>
 		{% block body %}{% endblock %}
 	</body>
-</html>
+</html></body></html>

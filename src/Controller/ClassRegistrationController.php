@@ -8,11 +8,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class ClassRegistrationController extends AbstractController
 {
     /**
      * @Route("/preinscription", name="class_registration")
+     * @IsGranted("ROLE_USER")
      */
     public function preregister(Request $request): Response
     {

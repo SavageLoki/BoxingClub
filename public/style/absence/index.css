@@ -1,0 +1,23 @@
+.absence {
+  border: solid 3px;
+  background-color: white;
+  margin-left: 10%;
+  margin-right: 65%;
+}
+.absenceContenu {
+  margin: 2%;
+}
+
+.absencePic img {
+  height: 35px;
+  width: 35px;
+  margin-left: 2%;
+  margin-top: 5%;
+}
+
+.cours {
+  border: solid 3px;
+  background-color: white;
+  margin-left: 10%;
+  margin-right: 25%;
+}

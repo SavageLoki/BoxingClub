@@ -13,9 +13,7 @@ class NewsType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content')
-            ->add('publicationDate')
-        ;
+            ->add('content');
     }
 
     public function configureOptions(OptionsResolver $resolver)

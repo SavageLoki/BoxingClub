@@ -1,11 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Course{% endblock %}
+{% block title %}Nouveau cours
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Course</h1>
+	<h1>Créer un nouveau cours</h1>
+	<div class="formContact">
+		<div class="contenuFormContact">
+			{{ form_start(form) }}
+			Nom du cours:
+			<div class="champFormContact">{{form_widget(form.Nom)}}</div>
+			Jour:
+			<div class="champFormContact">{{form_widget(form.date)}}</div>
+			Niveau:
+			<div class="champFormContact">{{form_widget(form.niveau)}}</div>
+			Public visé:
+			<div class="champFormContact">{{form_widget(form.Public)}}</div>
+			Nombre maximum de membre
+			<div class="champFormContact">{{form_widget(form.maxMember)}}</div>
+			Heure de début:
+			<div class="champFormContact">{{form_widget(form.heure)}}</div>
+			Heure de fin:
+			<div class="champFormContact">{{form_widget(form.fin)}}</div>
+			<button class="btn">{{ button_label|default('Save') }}</button>
+			{{ form_end(form) }}
+		</div>
+	</div>
 
-    {{ include('course/_form.html.twig') }}
-
-    <a href="{{ path('course_index') }}">back to list</a>
+	<div class="back">
+		<a href="{{ path('course_management') }}">
+			<img src="/pictures/back.PNG">
+		</a>
+	</div>
 {% endblock %}

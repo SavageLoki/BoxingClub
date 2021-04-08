@@ -1,8 +1,12 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Emploi du temps
+{% endblock %}
 
 {% block body %}
-	<a href="{{ path('course_management') }}">Editer l'emploi du temps</a>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a href="{{ path('course_management') }}">Editer l'emploi du temps</a>
+	{% endif %}
 	<div class="week">
 		<div class="heure"></div>
 		<div class="jour lundi">Lundi</div>

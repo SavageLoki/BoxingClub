@@ -1,9 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!
+{% block title %}Formulaire de contact
 {% endblock %}
 
 {% block body %}
-	{{ form(form) }}
-		<button>Envoyé</button>
-	{% endblock %}
+	<div class="formContact">
+		<div class="contenuFormContact">
+			{{ form_start(form) }}
+			Votre nom:
+			<div class="champFormContact">{{form_widget(form.name)}}</div>
+			Votre message:
+			<div class="champFormContact">{{form_widget(form.content)}}</div>
+			Votre email:
+			<div class="champFormContact">{{form_widget(form.email)}}</div>
+			<button>Envoyé</button>
+			{{form_end(form)}}
+		</div>
+	</div>
+{% endblock %}

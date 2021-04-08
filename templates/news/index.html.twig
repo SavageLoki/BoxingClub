@@ -11,18 +11,21 @@
 			<h1>Les dernières actus du club</h1>
 
 		</div>
-		<div class="nouveau">
-			<a href="{{ path('news_new') }}"><img src="{{asset('pictures/new.png')}}" alt="edition"></a>
-		</div>
+		{% if is_granted('ROLE_ADMIN') %}
+			<div class="nouveau">
+				<a href="{{ path('news_new') }}"><img src="{{asset('pictures/new.png')}}" alt="edition"></a>
+			</div>
+		{% endif %}
 	</div>
 
-
 	<div class="article">
-
 		{% for news in news %}
-			<div class="edition">
-				<a href="{{path('news_edit',{'id':news.id})}}"><img src="{{asset('pictures/edit.png')}}" alt="edition"></a>
-			</div>
+
+			{% if is_granted('ROLE_ADMIN') %}
+				<div class="edition">
+					<a href="{{path('news_edit',{'id':news.id})}}"><img src="{{asset('pictures/edit.png')}}" alt="edition"></a>
+				</div>
+			{% endif %}
 
 			<p>
 				<div class="titre">
@@ -34,11 +37,11 @@
 					publié le&nbsp;
 					{{ news.publicationDate ? news.publicationDate|date('d-m-Y') : '' }}</p>
 			</p>
-		</div>
-		<div class="content">
-			{{news.content}}
-		</div>
 
+			<div class="content">
+				{{news.content}}
+			</div>
+		</div>
 
 	{% else %}
 		<p>Pas de nouvelles actualités pour le moment</p>

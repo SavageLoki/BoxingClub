@@ -1,11 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Absence{% endblock %}
+{% block title %}Absence
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Absence</h1>
+	<h1>Je signale une absence</h1>
 
-    {{ include('absence/_form.html.twig') }}
-
-    <a href="{{ path('absence_index') }}">back to list</a>
+	<div class="formContact">
+		<div class="contenuFormContact">
+			{{ form_start(form) }}
+			Date de l'absence:
+			<div class="champFormContact">{{ form_widget(form.date) }}</div>
+			Motif de l'absence:
+			<div class="champFormContact">{{ form_widget(form.motif) }}</div>
+			Nom de votre cours:
+			<div class="champFormContact">{{ form_widget(form.courseName) }}</div>
+			<button class="btn">{{ button_label|default('Enregistrer') }}</button>
+			{{ form_end(form) }}
+		</div>
+	</div>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a href="{{path('absence_index')}}">
+			<img src="/pictures/back.PNG">
+		</a>
+	{% endif %}
 {% endblock %}

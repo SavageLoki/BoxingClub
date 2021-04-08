@@ -2,3 +2,14 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
+comments_edit:
+  path: /comments/{id}/edit
+  controller: App\Controller\CommentsController::edit
+
+comments_delete:
+  path: /comments/{id}/delete
+  controller: App\Controller\CommentsController::delete
+
+comments_new:
+  path: /comments/new/{id}
+  controller: App\Controller\CommentsController::new
